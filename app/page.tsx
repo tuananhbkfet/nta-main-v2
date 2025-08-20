@@ -1,6 +1,6 @@
 'use client'
 import { motion } from 'motion/react'
-import { XIcon } from 'lucide-react'
+import { XIcon, ChevronDownIcon } from 'lucide-react'
 import { Spotlight } from '@/components/ui/spotlight'
 import { Magnetic } from '@/components/ui/magnetic'
 import {
@@ -169,25 +169,51 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">Dự án</h3>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {PROJECTS.map((project) => (
-            <div key={project.name} className="space-y-2">
-              <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
-                <ProjectVideo src={project.video} />
-              </div>
-              <div className="px-1">
-                <a
-                  className="font-base group relative inline-block font-[450] text-zinc-900 dark:text-zinc-50"
-                  href={project.link}
-                  target="_blank"
-                >
-                  {project.name}
-                  <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 dark:bg-zinc-50 transition-all duration-200 group-hover:max-w-full"></span>
-                </a>
-                <p className="text-base text-zinc-600 dark:text-zinc-400">
-                  {project.description}
-                </p>
+        <h3 className="mb-5 text-lg font-medium">Học vấn</h3>
+        <div className="flex flex-col space-y-2">
+          {EDUCATION.map((edu) => (
+            <div
+              key={edu.id}
+              className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
+            >
+              <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
+                <details className="group cursor-pointer">
+                  <summary className="list-none">
+                    <div className="flex w-full flex-row justify-between items-center">
+                      <div className="flex items-center gap-3">
+                        {edu.image && (
+                          <img
+                            src={edu.image}
+                            alt={`Logo ${edu.school}`}
+                            className="h-8 w-8 object-contain"
+                          />
+                        )}
+                        <h4 className="font-normal dark:text-zinc-100">
+                          {edu.school}
+                        </h4>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <p className="text-zinc-600 dark:text-zinc-400">
+                          {edu.start} - {edu.end}
+                        </p>
+                        {edu.details && (
+                          <ChevronDownIcon 
+                            className="h-4 w-4 text-zinc-600 dark:text-zinc-400 transition-transform duration-200 group-open:rotate-180" 
+                          />
+                        )}
+                      </div>
+                    </div>
+                  </summary>
+                  {edu.details && (
+                    <div className="mt-3 pl-11 space-y-1">
+                      {edu.details.map((detail, index) => (
+                        <p key={index} className="text-sm text-zinc-600 dark:text-zinc-400">
+                          • {detail}
+                        </p>
+                      ))}
+                    </div>
+                  )}
+                </details>
               </div>
             </div>
           ))}
@@ -236,31 +262,25 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">Học vấn</h3>
-        <div className="flex flex-col space-y-2">
-          {EDUCATION.map((edu) => (
-            <div
-              key={edu.id}
-              className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
-            >
-              <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
-                <div className="relative flex w-full flex-row justify-between">
-                  <div className="flex items-center gap-3">
-                    {edu.image && (
-                      <img
-                        src={edu.image}
-                        alt={`Logo ${edu.school}`}
-                        className="h-8 w-8 object-contain"
-                      />
-                    )}
-                    <h4 className="font-normal dark:text-zinc-100">
-                      {edu.school}
-                    </h4>
-                  </div>
-                  <p className="text-zinc-600 dark:text-zinc-400">
-                    {edu.start} - {edu.end}
-                  </p>
-                </div>
+        <h3 className="mb-5 text-lg font-medium">Dự án</h3>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {PROJECTS.map((project) => (
+            <div key={project.name} className="space-y-2">
+              <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
+                <ProjectVideo src={project.video} />
+              </div>
+              <div className="px-1">
+                <a
+                  className="font-base group relative inline-block font-[450] text-zinc-900 dark:text-zinc-50"
+                  href={project.link}
+                  target="_blank"
+                >
+                  {project.name}
+                  <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 dark:bg-zinc-50 transition-all duration-200 group-hover:max-w-full"></span>
+                </a>
+                <p className="text-base text-zinc-600 dark:text-zinc-400">
+                  {project.description}
+                </p>
               </div>
             </div>
           ))}

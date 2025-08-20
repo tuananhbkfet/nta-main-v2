@@ -34,6 +34,7 @@ type Education = {
   description?: string
   id: string
   image?: string
+  details?: string[]
 }
 
 export const PROJECTS: Project[] = [
@@ -124,7 +125,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     company: 'Viettel',
     title: 'Kỹ sư điện tử viễn thông',
     start: '2014',
-    end: '2019',
+    end: 'Nay',
     link: 'https://ibelick.com',
     id: 'work2',
   },
@@ -191,6 +192,12 @@ export const EDUCATION: Education[] = [
     description: 'Sinh viên',
     id: 'education1',
     image: '/logo_bachkhoa.png',
+    details: [
+      'Sinh viên khoa Điện tử Viễn thông',
+      'Nghiên cứu sinh tại EDABK Lab',
+      'Giải nhì Sinh viên nghiên cứu khoa học cấp trường năm 2013',
+      'GPA: 3.03/4'
+    ],
   },
   {
     school: 'Trường THPT Chu Văn An - Hà Nội',
@@ -199,6 +206,9 @@ export const EDUCATION: Education[] = [
     description: 'Học sinh',
     id: 'education2',
     image: '/logo_cva_hn.jpeg',
+    details: [
+      'Học sinh',
+    ],
   },
   {
     school: 'Trường THCS Giảng Võ - Hà Nội',
@@ -207,6 +217,9 @@ export const EDUCATION: Education[] = [
     description: 'Học sinh',
     id: 'education3',
     image: '/logo_gv_hn.jpg',
+    details: [
+      'Học sinh',
+    ],
   },
   {
     school: 'Trường Tiểu học Phan Chu Trinh - Hà Nội',
@@ -215,5 +228,8 @@ export const EDUCATION: Education[] = [
     description: 'Học sinh',
     id: 'education4',
     image: '/logo_pct.png',
+    details: [
+      'Học sinh',
+    ],
   },
 ]
