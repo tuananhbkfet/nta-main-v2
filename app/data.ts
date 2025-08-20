@@ -110,6 +110,13 @@ export const PROJECTS: Project[] = [
     video: '/dtvc_peaceship.png', // Tạo ảnh với kích thước 1920x1080, tỷ lệ 16:9
     id: 'project10',
   },
+  {
+    name: 'Thiết kế thư viện Standard Cell TSMC 28nm và 16nm',
+    description: 'Dolphin Technology Vietnam Center',
+    link: 'https://dolphin-tech.com/',
+    video: '/tsmc_standard_cell.png',
+    id: 'project11',
+  },
 ]
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
