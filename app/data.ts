@@ -161,6 +161,12 @@ export const BLOG_POSTS: BlogPost[] = [
     link: 'https://www.itpro.com/software/development/anthropic-claude-opus-4-software-development?utm_source=chatgpt.com',
     uid: 'blog-2',
   },
+  {
+    title: 'Video: Mưa - Piano',
+    description: 'Sáng tác: M4U - Piano: Tuấn Anh',
+    link: 'https://youtube.com/shorts/S9TyCHS22wE?si=3iAgMbNp3okrytzC',
+    uid: 'blog-3',
+  },
 ]
 
 export const SOCIAL_LINKS: SocialLink[] = [

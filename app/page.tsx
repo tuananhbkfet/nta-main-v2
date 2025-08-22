@@ -304,12 +304,7 @@ export default function Personal() {
             }}
           >
             {BLOG_POSTS.map((post) => (
-              <Link
-                key={post.uid}
-                className="-mx-3 rounded-xl px-3 py-3"
-                href={post.link}
-                data-id={post.uid}
-              >
+              <div key={post.uid} className="-mx-3 rounded-xl px-3 py-3">
                 <div className="flex flex-col space-y-1">
                   <h4 className="font-normal dark:text-zinc-100">
                     {post.title}
@@ -317,8 +312,22 @@ export default function Personal() {
                   <p className="text-zinc-500 dark:text-zinc-400">
                     {post.description}
                   </p>
+                  {post.uid === 'blog-3' && (
+                    <div className="mt-3">
+                      <iframe
+                        width="360"
+                        height="640"
+                        src="https://www.youtube.com/embed/S9TyCHS22wE"
+                        title="YouTube video player"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                        className="rounded-xl w-full aspect-[9/16]"
+                      />
+                    </div>
+                  )}
                 </div>
-              </Link>
+              </div>
             ))}
           </AnimatedBackground>
         </div>
