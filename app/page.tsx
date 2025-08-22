@@ -293,43 +293,50 @@ export default function Personal() {
         transition={TRANSITION_SECTION}
       >
         <h3 className="mb-3 text-lg font-medium">Blog</h3>
-        <div className="flex flex-col space-y-0">
-          <AnimatedBackground
-            enableHover
-            className="h-full w-full rounded-lg bg-zinc-100 dark:bg-zinc-900/80"
-            transition={{
-              type: 'spring',
-              bounce: 0,
-              duration: 0.2,
-            }}
-          >
-            {BLOG_POSTS.map((post) => (
-              <div key={post.uid} className="-mx-3 rounded-xl px-3 py-3">
-                <div className="flex flex-col space-y-1">
-                  <h4 className="font-normal dark:text-zinc-100">
-                    {post.title}
-                  </h4>
-                  <p className="text-zinc-500 dark:text-zinc-400">
-                    {post.description}
-                  </p>
-                  {post.uid === 'blog-3' && (
-                    <div className="mt-3">
-                      <iframe
-                        width="360"
-                        height="640"
-                        src="https://www.youtube.com/embed/S9TyCHS22wE"
-                        title="YouTube video player"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen
-                        className="rounded-xl w-full aspect-[9/16]"
-                      />
-                    </div>
-                  )}
+        <div className="flex flex-col space-y-2">
+          {BLOG_POSTS.map((post) => (
+            <Link 
+              href={post.link} 
+              key={post.uid} 
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <AnimatedBackground
+                enableHover
+                className="w-full rounded-lg bg-zinc-100 dark:bg-zinc-900/80 cursor-pointer"
+                transition={{
+                  type: 'spring',
+                  bounce: 0,
+                  duration: 0.2,
+                }}
+              >
+                <div className="-mx-3 rounded-xl px-3 py-3">
+                  <div className="flex flex-col space-y-1">
+                    <h4 className="font-normal dark:text-zinc-100">
+                      {post.title}
+                    </h4>
+                    <p className="text-zinc-500 dark:text-zinc-400">
+                      {post.description}
+                    </p>
+                    {post.uid === 'blog-3' && (
+                      <div className="mt-3">
+                        <iframe
+                          width="360"
+                          height="640"
+                          src="https://www.youtube.com/embed/S9TyCHS22wE"
+                          title="YouTube video player"
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowFullScreen
+                          className="rounded-xl w-full aspect-[9/16]"
+                        />
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </AnimatedBackground>
+              </AnimatedBackground>
+            </Link>
+          ))}
         </div>
       </motion.section>
       
