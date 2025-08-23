@@ -12,6 +12,7 @@ import {
 } from '@/components/ui/morphing-dialog'
 import Link from 'next/link'
 import { AnimatedBackground } from '@/components/ui/animated-background'
+import { ContactButtons } from '@/components/ui/contact-buttons'
 import {
   PROJECTS,
   WORK_EXPERIENCE,
@@ -351,7 +352,8 @@ export default function Personal() {
             {EMAIL}
           </a>
         </p>
-        <div className="flex items-center justify-start space-x-3">
+        <div className="flex items-center justify-start space-x-3 flex-wrap">
+          <ContactButtons phoneNumber="0976668458" />
           {SOCIAL_LINKS.map((link) => (
             <MagneticSocialLink key={link.label} link={link.link}>
               {link.label}
